@@ -10,3 +10,4 @@ libraryDependencies += "junit" % "junit" % "4.12"
 libraryDependencies += "info.cukes" % "gherkin" % "2.12.2"
 libraryDependencies += "org.seleniumhq.selenium" % "selenium-java" % "3.141.59"
 libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.0" % Test
+libraryDependencies += "com.typesafe" % "config" % "1.3.4"

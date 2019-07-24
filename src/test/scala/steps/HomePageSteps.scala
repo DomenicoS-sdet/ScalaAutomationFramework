@@ -8,7 +8,7 @@ import pageObjects.Pages
 class HomePageSteps extends ScalaDsl with EN {
 
 Before("@HomePageTest"){scenario: Scenario =>
-    Browser.getBrowser("Chrome").start
+    Browser.getBrowser.start
   }
 
   Given("""^I Navigate to the home page$"""){ () =>
@@ -23,7 +23,7 @@ Before("@HomePageTest"){scenario: Scenario =>
   }
 
 After("@HomePageTest") { scenario: Scenario =>
-  Browser.getBrowser("Chrome").dispose
+  Browser.getBrowser.dispose
 }
 
 
