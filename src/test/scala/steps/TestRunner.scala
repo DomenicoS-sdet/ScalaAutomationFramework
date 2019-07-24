@@ -9,7 +9,7 @@ import org.junit.runner.RunWith
 @CucumberOptions(
   features = Array("classpath:features"),
   glue = Array("classpath:steps"),
-  tags = Array("@HomePageTest"),
+  tags = Array("@HomePageTest,@SearchTest"),
   monochrome = true,
   plugin =
     Array("pretty",

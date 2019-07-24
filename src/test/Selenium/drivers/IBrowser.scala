@@ -4,9 +4,11 @@ import org.openqa.selenium.WebDriver
 
 trait IBrowser {
 
-  var driver : WebDriver
+  var driver_ : WebDriver
 
   def canInit(brName : String) : Boolean
+
+  def getDriver : WebDriver
 
   def start
 

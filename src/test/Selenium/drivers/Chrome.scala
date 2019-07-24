@@ -7,35 +7,37 @@ import org.openqa.selenium.WebDriver
 
 class Chrome extends IBrowser {
 
-  var driver : WebDriver = {
-    System.setProperty("webdriver.chrome.driver","""C:\\Temp\\chromedriver.exe""")
-    new ChromeDriver()
-  }
+  var driver_ : WebDriver = null
 
   def canInit(browserName : String) : Boolean = {
     browserName.equalsIgnoreCase("Chrome")
   }
 
-  def start(): Unit = {
+  def getDriver : WebDriver = {
+    driver_
+  }
 
-    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS)
-    driver.manage().window().maximize()
+  def start(): Unit = {
+    System.setProperty("webdriver.chrome.driver","""C:\\Temp\\chromedriver.exe""")
+    driver_ = new ChromeDriver()
+    driver_.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS)
+    driver_.manage().window().maximize()
   }
 
   def get(uri : String) : Unit = {
-    driver.get(uri)
+    driver_.get(uri)
   }
 
   def getTitle() : String = {
-    driver.getTitle()
+    driver_.getTitle()
   }
 
   def cleanup() : Unit = {
-    driver.manage().deleteAllCookies()
+    driver_.manage().deleteAllCookies()
   }
 
   def dispose() : Unit = {
-    driver.close()
+    driver_.quit()
   }
 
 }
