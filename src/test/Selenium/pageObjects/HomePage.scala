@@ -1,10 +1,13 @@
 package pageObjects
 
-import drivers.Chrome
-import org.openqa.selenium.WebElement
+import org.openqa.selenium.{By, WebDriver, WebElement}
 import org.openqa.selenium.support.FindBy
 
-class HomePage(var dr : Chrome) extends PageObject(dr, "https://www.phptravels.net/", pageName = "PHPTRAVELS | Travel Technology Partner") {
+class HomePage(var uri : String, var pageName : String, var driver : WebDriver) extends PageObject() {
+
+  this.uri = uri
+  this.pageName = pageName
+  this.driver = driver
 
   @FindBy(xpath = "//*[text()='Search by Hotel or City Name']/parent::a/parent::div//input")
   val citySearch : WebElement = null
@@ -25,7 +28,7 @@ class HomePage(var dr : Chrome) extends PageObject(dr, "https://www.phptravels.n
   val childInput : WebElement = null
 
   def isHomePageReady : Boolean = {
-    dr.driver.findElementByXPath("//button[text() = ' Search']").isDisplayed()
+    driver.findElement(By.xpath("//button[text() = ' Search']")).isDisplayed()
   }
 
 }

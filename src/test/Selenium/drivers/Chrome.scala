@@ -2,14 +2,18 @@ package drivers
 
 import org.openqa.selenium.chrome.ChromeDriver
 import java.util.concurrent.TimeUnit
+import org.openqa.selenium.WebDriver
 
 
+class Chrome extends IBrowser {
 
-class Chrome {
-
-  var driver : ChromeDriver = {
+  var driver : WebDriver = {
     System.setProperty("webdriver.chrome.driver","""C:\\Temp\\chromedriver.exe""")
     new ChromeDriver()
+  }
+
+  def canInit(browserName : String) : Boolean = {
+    browserName.equalsIgnoreCase("Chrome")
   }
 
   def start(): Unit = {
