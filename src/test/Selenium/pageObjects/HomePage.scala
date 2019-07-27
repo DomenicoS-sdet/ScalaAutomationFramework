@@ -20,22 +20,22 @@ class HomePage(var uri : String, var pageName : String, var driver : WebDriver) 
     driver.findElement(By.xpath("//input[@placeholder=\"Check in\" and @name='checkin']")).sendKeys(checkin)
     driver.findElement(By.xpath("//input[@placeholder=\"Check out\" and @name='checkout']")).sendKeys(checkout)
 
-    val travellersInput = driver.findElement(By.id("travellersInput"))
+    val travellersInput = driver.findElement(By.id("htravellersInput"))
 
     travellersInput.click()
 
-    val adultInput = driver.findElement(By.id("adultInput"))
-    val childInput = driver.findElement(By.id("childInput"))
+    val adultInput = driver.findElement(By.id("hadultInput"))
+    val childInput = driver.findElement(By.id("hchildInput"))
 
     while (!adultInput.getAttribute("value").equals(adults)) {
-      if (adultInput.getAttribute("value").toInt < adults.toInt) driver.findElement(By.id("adultPlusBtn")).click
-      else driver.findElement(By.id("adultMinusBtn")).click
+      if (adultInput.getAttribute("value").toInt < adults.toInt) driver.findElement(By.id("hadultPlusBtn")).click
+      else driver.findElement(By.id("hadultMinusBtn")).click
     }
 
     while ( {
       !childInput.getAttribute("value").equals(childs)
-    }) if (childInput.getAttribute("value").toInt < childs.toInt) driver.findElement(By.id("childPlusBtn")).click
-    else driver.findElement(By.id("childMinusBtn")).click
+    }) if (childInput.getAttribute("value").toInt < childs.toInt) driver.findElement(By.id("hchildPlusBtn")).click
+    else driver.findElement(By.id("hchildMinusBtn")).click
 
     travellersInput.click()
   }

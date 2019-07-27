@@ -12,9 +12,6 @@ import org.junit.runner.RunWith
   tags = Array("@HomePageTest,@SearchTest"),
   monochrome = true,
   plugin =
-    Array("pretty",
-      "html:target/cucumber",
-      "json:target/cucumber/test-report.json",
-      "junit:target/cucumber/test-report.xml")
+    Array("com.cucumber.listener.ExtentCucumberFormatter:C:/Temp/ScalaTestResults/report.html")
 )
 class TestRunner {}
