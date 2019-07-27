@@ -13,4 +13,4 @@ Automation framework using Selenium and Cucumber written in Scala.
 
 ## Output
 1. Output is displayed inside the **Run** consolle
-2. Also a basic html report is available in **target > cucumber > index.html**
+2. Also a html report is available in **C:/Temp/ScalaTestResults/**
